@@ -34,11 +34,14 @@
             lblDescripcion = new Label();
             lstMarca = new ComboBox();
             lblPrecio = new Label();
-            maskedTextBox1 = new MaskedTextBox();
+            mtbPrecio = new MaskedTextBox();
             optNacional = new RadioButton();
             optImportado = new RadioButton();
             lstResultado = new ListBox();
             nudNumero = new NumericUpDown();
+            txtDescripcion = new TextBox();
+            btnBuscar = new Button();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)nudNumero).BeginInit();
             SuspendLayout();
             // 
@@ -86,6 +89,7 @@
             lstMarca.Name = "lstMarca";
             lstMarca.Size = new Size(183, 23);
             lstMarca.TabIndex = 4;
+            lstMarca.SelectedIndexChanged += lstMarca_SelectedIndexChanged;
             // 
             // lblPrecio
             // 
@@ -96,14 +100,15 @@
             lblPrecio.TabIndex = 6;
             lblPrecio.Text = "Precio";
             // 
-            // maskedTextBox1
+            // mtbPrecio
             // 
-            maskedTextBox1.Location = new Point(95, 208);
-            maskedTextBox1.Mask = "99999";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(100, 23);
-            maskedTextBox1.TabIndex = 7;
-            maskedTextBox1.ValidatingType = typeof(int);
+            mtbPrecio.Enabled = false;
+            mtbPrecio.Location = new Point(95, 208);
+            mtbPrecio.Mask = "99999";
+            mtbPrecio.Name = "mtbPrecio";
+            mtbPrecio.Size = new Size(168, 23);
+            mtbPrecio.TabIndex = 7;
+            mtbPrecio.ValidatingType = typeof(int);
             // 
             // optNacional
             // 
@@ -131,28 +136,61 @@
             // 
             lstResultado.FormattingEnabled = true;
             lstResultado.ItemHeight = 15;
-            lstResultado.Location = new Point(11, 278);
+            lstResultado.Location = new Point(8, 312);
             lstResultado.Name = "lstResultado";
-            lstResultado.Size = new Size(393, 94);
+            lstResultado.Size = new Size(370, 94);
             lstResultado.TabIndex = 10;
             // 
             // nudNumero
             // 
-            nudNumero.Location = new Point(143, 119);
+            nudNumero.Enabled = false;
+            nudNumero.Location = new Point(143, 125);
             nudNumero.Name = "nudNumero";
             nudNumero.Size = new Size(120, 23);
             nudNumero.TabIndex = 11;
+            nudNumero.ValueChanged += nudNumero_ValueChanged;
+            // 
+            // txtDescripcion
+            // 
+            txtDescripcion.Enabled = false;
+            txtDescripcion.Location = new Point(95, 166);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(168, 23);
+            txtDescripcion.TabIndex = 12;
+            txtDescripcion.TextChanged += txtDescripcion_TextChanged;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(203, 266);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 23);
+            btnBuscar.TabIndex = 13;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(303, 266);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.TabIndex = 14;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // frmGestionRepuestos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(436, 435);
+            ClientSize = new Size(390, 418);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnBuscar);
+            Controls.Add(txtDescripcion);
             Controls.Add(nudNumero);
             Controls.Add(lstResultado);
             Controls.Add(optImportado);
             Controls.Add(optNacional);
-            Controls.Add(maskedTextBox1);
+            Controls.Add(mtbPrecio);
             Controls.Add(lblPrecio);
             Controls.Add(lstMarca);
             Controls.Add(lblDescripcion);
@@ -163,6 +201,7 @@
             Name = "frmGestionRepuestos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de Gestion de Repuestos";
+            Load += frmGestionRepuestos_Load;
             ((System.ComponentModel.ISupportInitialize)nudNumero).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -176,10 +215,13 @@
         private Label lblDescripcion;
         private ComboBox lstMarca;
         private Label lblPrecio;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox mtbPrecio;
         private RadioButton optNacional;
         private RadioButton optImportado;
         private ListBox lstResultado;
         private NumericUpDown nudNumero;
+        private TextBox txtDescripcion;
+        private Button btnBuscar;
+        private Button btnCancelar;
     }
 }
