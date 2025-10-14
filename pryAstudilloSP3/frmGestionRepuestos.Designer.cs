@@ -28,200 +28,239 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblMarca = new Label();
-            lblOrigen = new Label();
-            lblNumeroRepuesto = new Label();
-            lblDescripcion = new Label();
-            lstMarca = new ComboBox();
-            lblPrecio = new Label();
-            mtbPrecio = new MaskedTextBox();
-            optNacional = new RadioButton();
-            optImportado = new RadioButton();
-            lstResultado = new ListBox();
-            nudNumero = new NumericUpDown();
-            txtDescripcion = new TextBox();
-            btnBuscar = new Button();
+            tabDatos = new TabControl();
+            tabInicio = new TabPage();
+            tabPage2 = new TabPage();
             btnCancelar = new Button();
+            btnBuscar = new Button();
+            txtDescripcion = new TextBox();
+            nudNumero = new NumericUpDown();
+            optImportado = new RadioButton();
+            optNacional = new RadioButton();
+            mtbPrecio = new MaskedTextBox();
+            lblPrecio = new Label();
+            lstMarca = new ComboBox();
+            lblDescripcion = new Label();
+            lblNumeroRepuesto = new Label();
+            lblOrigen = new Label();
+            lblMarca = new Label();
+            dgvDatos = new DataGridView();
+            tabDatos.SuspendLayout();
+            tabInicio.SuspendLayout();
+            tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumero).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             SuspendLayout();
             // 
-            // lblMarca
+            // tabDatos
             // 
-            lblMarca.AutoSize = true;
-            lblMarca.Location = new Point(12, 32);
-            lblMarca.Name = "lblMarca";
-            lblMarca.Size = new Size(40, 15);
-            lblMarca.TabIndex = 0;
-            lblMarca.Text = "Marca";
+            tabDatos.Controls.Add(tabInicio);
+            tabDatos.Controls.Add(tabPage2);
+            tabDatos.Location = new Point(12, 12);
+            tabDatos.Name = "tabDatos";
+            tabDatos.SelectedIndex = 0;
+            tabDatos.Size = new Size(469, 409);
+            tabDatos.TabIndex = 16;
             // 
-            // lblOrigen
+            // tabInicio
             // 
-            lblOrigen.AutoSize = true;
-            lblOrigen.Location = new Point(12, 83);
-            lblOrigen.Name = "lblOrigen";
-            lblOrigen.Size = new Size(43, 15);
-            lblOrigen.TabIndex = 1;
-            lblOrigen.Text = "Origen";
+            tabInicio.Controls.Add(btnCancelar);
+            tabInicio.Controls.Add(btnBuscar);
+            tabInicio.Controls.Add(txtDescripcion);
+            tabInicio.Controls.Add(nudNumero);
+            tabInicio.Controls.Add(optImportado);
+            tabInicio.Controls.Add(optNacional);
+            tabInicio.Controls.Add(mtbPrecio);
+            tabInicio.Controls.Add(lblPrecio);
+            tabInicio.Controls.Add(lstMarca);
+            tabInicio.Controls.Add(lblDescripcion);
+            tabInicio.Controls.Add(lblNumeroRepuesto);
+            tabInicio.Controls.Add(lblOrigen);
+            tabInicio.Controls.Add(lblMarca);
+            tabInicio.Location = new Point(4, 24);
+            tabInicio.Name = "tabInicio";
+            tabInicio.Padding = new Padding(3);
+            tabInicio.Size = new Size(461, 381);
+            tabInicio.TabIndex = 0;
+            tabInicio.Text = "tabPage1";
+            tabInicio.UseVisualStyleBackColor = true;
             // 
-            // lblNumeroRepuesto
+            // tabPage2
             // 
-            lblNumeroRepuesto.AutoSize = true;
-            lblNumeroRepuesto.Location = new Point(12, 127);
-            lblNumeroRepuesto.Name = "lblNumeroRepuesto";
-            lblNumeroRepuesto.Size = new Size(119, 15);
-            lblNumeroRepuesto.TabIndex = 2;
-            lblNumeroRepuesto.Text = "Numero del repuesto";
+            tabPage2.Controls.Add(dgvDatos);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(461, 381);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lblDescripcion
+            // btnCancelar
             // 
-            lblDescripcion.AutoSize = true;
-            lblDescripcion.Location = new Point(12, 169);
-            lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(69, 15);
-            lblDescripcion.TabIndex = 3;
-            lblDescripcion.Text = "Descripcion";
+            btnCancelar.Location = new Point(338, 297);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.TabIndex = 27;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(238, 297);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 23);
+            btnBuscar.TabIndex = 26;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // txtDescripcion
+            // 
+            txtDescripcion.Enabled = false;
+            txtDescripcion.Location = new Point(130, 197);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(168, 23);
+            txtDescripcion.TabIndex = 25;
+            // 
+            // nudNumero
+            // 
+            nudNumero.Enabled = false;
+            nudNumero.Location = new Point(178, 156);
+            nudNumero.Name = "nudNumero";
+            nudNumero.Size = new Size(120, 23);
+            nudNumero.TabIndex = 24;
+            // 
+            // optImportado
+            // 
+            optImportado.AutoSize = true;
+            optImportado.Location = new Point(232, 112);
+            optImportado.Name = "optImportado";
+            optImportado.Size = new Size(81, 19);
+            optImportado.TabIndex = 23;
+            optImportado.TabStop = true;
+            optImportado.Text = "Importado";
+            optImportado.UseVisualStyleBackColor = true;
+            // 
+            // optNacional
+            // 
+            optNacional.AutoSize = true;
+            optNacional.Location = new Point(115, 112);
+            optNacional.Name = "optNacional";
+            optNacional.Size = new Size(72, 19);
+            optNacional.TabIndex = 22;
+            optNacional.TabStop = true;
+            optNacional.Text = "Nacional";
+            optNacional.UseVisualStyleBackColor = true;
+            // 
+            // mtbPrecio
+            // 
+            mtbPrecio.Enabled = false;
+            mtbPrecio.Location = new Point(130, 239);
+            mtbPrecio.Mask = "99999";
+            mtbPrecio.Name = "mtbPrecio";
+            mtbPrecio.Size = new Size(168, 23);
+            mtbPrecio.TabIndex = 21;
+            mtbPrecio.ValidatingType = typeof(int);
+            // 
+            // lblPrecio
+            // 
+            lblPrecio.AutoSize = true;
+            lblPrecio.Location = new Point(47, 242);
+            lblPrecio.Name = "lblPrecio";
+            lblPrecio.Size = new Size(40, 15);
+            lblPrecio.TabIndex = 20;
+            lblPrecio.Text = "Precio";
             // 
             // lstMarca
             // 
             lstMarca.DropDownStyle = ComboBoxStyle.DropDownList;
             lstMarca.FormattingEnabled = true;
-            lstMarca.Location = new Point(80, 29);
+            lstMarca.Location = new Point(115, 60);
             lstMarca.Name = "lstMarca";
             lstMarca.Size = new Size(183, 23);
-            lstMarca.TabIndex = 4;
-            lstMarca.SelectedIndexChanged += lstMarca_SelectedIndexChanged;
+            lstMarca.TabIndex = 19;
             // 
-            // lblPrecio
+            // lblDescripcion
             // 
-            lblPrecio.AutoSize = true;
-            lblPrecio.Location = new Point(12, 211);
-            lblPrecio.Name = "lblPrecio";
-            lblPrecio.Size = new Size(40, 15);
-            lblPrecio.TabIndex = 6;
-            lblPrecio.Text = "Precio";
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Location = new Point(47, 200);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(69, 15);
+            lblDescripcion.TabIndex = 18;
+            lblDescripcion.Text = "Descripcion";
             // 
-            // mtbPrecio
+            // lblNumeroRepuesto
             // 
-            mtbPrecio.Enabled = false;
-            mtbPrecio.Location = new Point(95, 208);
-            mtbPrecio.Mask = "99999";
-            mtbPrecio.Name = "mtbPrecio";
-            mtbPrecio.Size = new Size(168, 23);
-            mtbPrecio.TabIndex = 7;
-            mtbPrecio.ValidatingType = typeof(int);
+            lblNumeroRepuesto.AutoSize = true;
+            lblNumeroRepuesto.Location = new Point(47, 158);
+            lblNumeroRepuesto.Name = "lblNumeroRepuesto";
+            lblNumeroRepuesto.Size = new Size(119, 15);
+            lblNumeroRepuesto.TabIndex = 17;
+            lblNumeroRepuesto.Text = "Numero del repuesto";
             // 
-            // optNacional
+            // lblOrigen
             // 
-            optNacional.AutoSize = true;
-            optNacional.Location = new Point(80, 81);
-            optNacional.Name = "optNacional";
-            optNacional.Size = new Size(72, 19);
-            optNacional.TabIndex = 8;
-            optNacional.TabStop = true;
-            optNacional.Text = "Nacional";
-            optNacional.UseVisualStyleBackColor = true;
+            lblOrigen.AutoSize = true;
+            lblOrigen.Location = new Point(47, 114);
+            lblOrigen.Name = "lblOrigen";
+            lblOrigen.Size = new Size(43, 15);
+            lblOrigen.TabIndex = 16;
+            lblOrigen.Text = "Origen";
             // 
-            // optImportado
+            // lblMarca
             // 
-            optImportado.AutoSize = true;
-            optImportado.Location = new Point(197, 81);
-            optImportado.Name = "optImportado";
-            optImportado.Size = new Size(81, 19);
-            optImportado.TabIndex = 9;
-            optImportado.TabStop = true;
-            optImportado.Text = "Importado";
-            optImportado.UseVisualStyleBackColor = true;
+            lblMarca.AutoSize = true;
+            lblMarca.Location = new Point(47, 63);
+            lblMarca.Name = "lblMarca";
+            lblMarca.Size = new Size(40, 15);
+            lblMarca.TabIndex = 15;
+            lblMarca.Text = "Marca";
             // 
-            // lstResultado
+            // dgvDatos
             // 
-            lstResultado.FormattingEnabled = true;
-            lstResultado.ItemHeight = 15;
-            lstResultado.Location = new Point(8, 312);
-            lstResultado.Name = "lstResultado";
-            lstResultado.Size = new Size(370, 94);
-            lstResultado.TabIndex = 10;
-            // 
-            // nudNumero
-            // 
-            nudNumero.Enabled = false;
-            nudNumero.Location = new Point(143, 125);
-            nudNumero.Name = "nudNumero";
-            nudNumero.Size = new Size(120, 23);
-            nudNumero.TabIndex = 11;
-            nudNumero.ValueChanged += nudNumero_ValueChanged;
-            // 
-            // txtDescripcion
-            // 
-            txtDescripcion.Enabled = false;
-            txtDescripcion.Location = new Point(95, 166);
-            txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(168, 23);
-            txtDescripcion.TabIndex = 12;
-            txtDescripcion.TextChanged += txtDescripcion_TextChanged;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.Location = new Point(203, 266);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(75, 23);
-            btnBuscar.TabIndex = 13;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.Location = new Point(303, 266);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
-            btnCancelar.TabIndex = 14;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDatos.Location = new Point(47, 55);
+            dgvDatos.Name = "dgvDatos";
+            dgvDatos.Size = new Size(366, 271);
+            dgvDatos.TabIndex = 16;
             // 
             // frmGestionRepuestos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(390, 418);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnBuscar);
-            Controls.Add(txtDescripcion);
-            Controls.Add(nudNumero);
-            Controls.Add(lstResultado);
-            Controls.Add(optImportado);
-            Controls.Add(optNacional);
-            Controls.Add(mtbPrecio);
-            Controls.Add(lblPrecio);
-            Controls.Add(lstMarca);
-            Controls.Add(lblDescripcion);
-            Controls.Add(lblNumeroRepuesto);
-            Controls.Add(lblOrigen);
-            Controls.Add(lblMarca);
+            ClientSize = new Size(838, 602);
+            Controls.Add(tabDatos);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "frmGestionRepuestos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de Gestion de Repuestos";
             Load += frmGestionRepuestos_Load;
+            tabDatos.ResumeLayout(false);
+            tabInicio.ResumeLayout(false);
+            tabInicio.PerformLayout();
+            tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)nudNumero).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label lblMarca;
-        private Label lblOrigen;
-        private Label lblNumeroRepuesto;
-        private Label lblDescripcion;
-        private ComboBox lstMarca;
-        private Label lblPrecio;
-        private MaskedTextBox mtbPrecio;
-        private RadioButton optNacional;
-        private RadioButton optImportado;
-        private ListBox lstResultado;
-        private NumericUpDown nudNumero;
-        private TextBox txtDescripcion;
-        private Button btnBuscar;
+        private TabControl tabDatos;
+        private TabPage tabInicio;
+        private TabPage tabPage2;
         private Button btnCancelar;
+        private Button btnBuscar;
+        private TextBox txtDescripcion;
+        private NumericUpDown nudNumero;
+        private RadioButton optImportado;
+        private RadioButton optNacional;
+        private MaskedTextBox mtbPrecio;
+        private Label lblPrecio;
+        private ComboBox lstMarca;
+        private Label lblDescripcion;
+        private Label lblNumeroRepuesto;
+        private Label lblOrigen;
+        private Label lblMarca;
+        private DataGridView dgvDatos;
     }
 }
