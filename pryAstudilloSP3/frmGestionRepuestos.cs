@@ -17,7 +17,7 @@ namespace pryAstudilloSP3
             InitializeComponent();
         }
 
-        string[,] matRespuesto = new string[4, 5];
+        string[,] matRespuesto = new string[100, 5];
         int indiceGrabar = 0;
         private void CargadorDatos()
         {
@@ -753,16 +753,14 @@ namespace pryAstudilloSP3
             CargadorDatos();
             MessageBox.Show("Datos Cargados");
 
-            for (int filas = 0; filas < matRespuesto.GetLength(0); filas++) ;
+            for (int filas = 0; filas < matRespuesto.GetLength(0); filas++)
             {
-                dgvDatos.Rows.Add(matRespuesto[filas, 0],
-                    matRespuesto[filas, 1],
+                dgvDatos.Rows.Add(matRespuesto[filas, 0], matRespuesto[filas, 1],
                     matRespuesto[filas, 2],
                     matRespuesto[filas, 3],
                     matRespuesto[filas, 4]);
             }
         }
-
         private void nudNumero_ValueChanged(object sender, EventArgs e)
         {
             if (nudNumero.Value > 0)
@@ -809,5 +807,9 @@ namespace pryAstudilloSP3
             }
         }
 
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

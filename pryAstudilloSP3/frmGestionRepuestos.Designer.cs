@@ -30,7 +30,6 @@
         {
             tabDatos = new TabControl();
             tabInicio = new TabPage();
-            tabPage2 = new TabPage();
             btnCancelar = new Button();
             btnBuscar = new Button();
             txtDescripcion = new TextBox();
@@ -44,11 +43,17 @@
             lblNumeroRepuesto = new Label();
             lblOrigen = new Label();
             lblMarca = new Label();
+            tabPage2 = new TabPage();
             dgvDatos = new DataGridView();
+            dgvMarca = new DataGridViewTextBoxColumn();
+            dgvOrigen = new DataGridViewTextBoxColumn();
+            dgvNumero = new DataGridViewTextBoxColumn();
+            dgvPrecio = new DataGridViewTextBoxColumn();
+            dgvDescripcion = new DataGridViewTextBoxColumn();
             tabDatos.SuspendLayout();
             tabInicio.SuspendLayout();
-            tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumero).BeginInit();
+            tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             SuspendLayout();
             // 
@@ -84,17 +89,6 @@
             tabInicio.TabIndex = 0;
             tabInicio.Text = "tabPage1";
             tabInicio.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Controls.Add(dgvDatos);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(461, 381);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
@@ -216,13 +210,51 @@
             lblMarca.TabIndex = 15;
             lblMarca.Text = "Marca";
             // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(dgvDatos);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(461, 381);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
             // dgvDatos
             // 
             dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDatos.Location = new Point(47, 55);
+            dgvDatos.Columns.AddRange(new DataGridViewColumn[] { dgvMarca, dgvOrigen, dgvNumero, dgvPrecio, dgvDescripcion });
+            dgvDatos.Location = new Point(6, 17);
             dgvDatos.Name = "dgvDatos";
-            dgvDatos.Size = new Size(366, 271);
-            dgvDatos.TabIndex = 16;
+            dgvDatos.Size = new Size(432, 336);
+            dgvDatos.TabIndex = 0;
+            dgvDatos.CellContentClick += dgvDatos_CellContentClick;
+            // 
+            // dgvMarca
+            // 
+            dgvMarca.HeaderText = "Marca";
+            dgvMarca.Name = "dgvMarca";
+            // 
+            // dgvOrigen
+            // 
+            dgvOrigen.HeaderText = "Origen";
+            dgvOrigen.Name = "dgvOrigen";
+            // 
+            // dgvNumero
+            // 
+            dgvNumero.HeaderText = "Numero";
+            dgvNumero.Name = "dgvNumero";
+            // 
+            // dgvPrecio
+            // 
+            dgvPrecio.HeaderText = "Precio";
+            dgvPrecio.Name = "dgvPrecio";
+            // 
+            // dgvDescripcion
+            // 
+            dgvDescripcion.HeaderText = "Descripcion";
+            dgvDescripcion.Name = "dgvDescripcion";
             // 
             // frmGestionRepuestos
             // 
@@ -238,8 +270,8 @@
             tabDatos.ResumeLayout(false);
             tabInicio.ResumeLayout(false);
             tabInicio.PerformLayout();
-            tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)nudNumero).EndInit();
+            tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
             ResumeLayout(false);
         }
@@ -262,5 +294,10 @@
         private Label lblOrigen;
         private Label lblMarca;
         private DataGridView dgvDatos;
+        private DataGridViewTextBoxColumn dgvMarca;
+        private DataGridViewTextBoxColumn dgvOrigen;
+        private DataGridViewTextBoxColumn dgvNumero;
+        private DataGridViewTextBoxColumn dgvPrecio;
+        private DataGridViewTextBoxColumn dgvDescripcion;
     }
 }
