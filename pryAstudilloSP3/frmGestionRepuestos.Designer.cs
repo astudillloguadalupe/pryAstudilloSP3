@@ -96,7 +96,8 @@
             mtbNumeroRepuesto.Size = new Size(126, 23);
             mtbNumeroRepuesto.TabIndex = 29;
             mtbNumeroRepuesto.ValidatingType = typeof(int);
-            mtbNumeroRepuesto.MaskInputRejected += mtbNumeroRepuesto_MaskInputRejected;
+            //mtbNumeroRepuesto.MaskInputRejected += mtbNumeroRepuesto_MaskInputRejected;
+            mtbNumeroRepuesto.TextChanged += mtbNumeroRepuesto_TextChanged;
             // 
             // lstOrigen
             // 

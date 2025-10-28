@@ -67,33 +67,20 @@ namespace pryAstudilloSP3
             }
         }
 
-        private void mtbNumeroRepuesto_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            if (mtbNumeroRepuesto.Text.Length > 0)
-            {
-
-                txtDescripcion.Enabled = true;
-            }
-            else
-            {
-
-                txtDescripcion.Enabled = false;
-            }
-        }
+       
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
+
+
             if (txtDescripcion.Text.Length > 0)
             {
-
-                mtbPrecio.Enabled = true;
+                mtbPrecio.Enabled = true; // <--- Habilitar mtbPrecio
             }
             else
             {
-
-                mtbPrecio.Enabled = false;
-
-
+                mtbPrecio.Enabled = false; // <--- Deshabilitar mtbPrecio si se vacía
+                btnRegistrar.Enabled = false; // <--- Y deshabilitar el botón Registrar
             }
         }
 
@@ -264,6 +251,25 @@ namespace pryAstudilloSP3
 
         private void cmbResultado_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void mtbNumeroRepuesto_TextChanged(object sender, EventArgs e)
+        {
+
+            // Verificar si el MaskedTextBox tiene algún carácter de texto.
+            if (mtbNumeroRepuesto.Text.Trim().Length > 0)
+            {
+                // El siguiente control a habilitar es txtDescripcion.
+                txtDescripcion.Enabled = true; // <--- Habilitar txtDescripcion
+            }
+            else
+            {
+                txtDescripcion.Enabled = false; // <--- Deshabilitar si está vacío
+                                                // También deshabilitar los siguientes en cascada
+                mtbPrecio.Enabled = false;
+                btnRegistrar.Enabled = false;
+            }
 
         }
     }
