@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionRepuestos));
             tabDatos = new TabControl();
             tabInicio = new TabPage();
             mtbNumeroRepuesto = new MaskedTextBox();
@@ -96,7 +97,6 @@
             mtbNumeroRepuesto.Size = new Size(126, 23);
             mtbNumeroRepuesto.TabIndex = 29;
             mtbNumeroRepuesto.ValidatingType = typeof(int);
-            //mtbNumeroRepuesto.MaskInputRejected += mtbNumeroRepuesto_MaskInputRejected;
             mtbNumeroRepuesto.TextChanged += mtbNumeroRepuesto_TextChanged;
             // 
             // lstOrigen
@@ -307,6 +307,7 @@
             ClientSize = new Size(508, 432);
             Controls.Add(tabDatos);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmGestionRepuestos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de Gestion de Repuestos";

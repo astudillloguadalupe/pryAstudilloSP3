@@ -18,7 +18,7 @@ namespace pryAstudilloSP3
         }
 
         string[,] Repuestos = new string[100, 5];
-        int C = 0;
+        int Cont = 0;
 
         private void frmGestionRepuestos_Load(object sender, EventArgs e)
         {
@@ -75,12 +75,12 @@ namespace pryAstudilloSP3
 
             if (txtDescripcion.Text.Length > 0)
             {
-                mtbPrecio.Enabled = true; // <--- Habilitar mtbPrecio
+                mtbPrecio.Enabled = true; // Habilitar mtbPrecio
             }
             else
             {
-                mtbPrecio.Enabled = false; // <--- Deshabilitar mtbPrecio si se vacía
-                btnRegistrar.Enabled = false; // <--- Y deshabilitar el botón Registrar
+                mtbPrecio.Enabled = false; // Deshabilitar mtbPrecio si se vacía
+                btnRegistrar.Enabled = false; // Y deshabilitar el botón Registrar
             }
         }
 
@@ -96,10 +96,22 @@ namespace pryAstudilloSP3
                 btnRegistrar.Enabled = false;
             }
         }
-
+        private void LimpiarControles()
+        {
+            lstMarca.SelectedIndex = -1;
+            lstOrigen.SelectedIndex = -1;
+            mtbNumeroRepuesto.Text = "";
+            txtDescripcion.Text = "";
+            mtbPrecio.Text = "";
+            lstOrigen.Enabled = false;
+            mtbNumeroRepuesto.Enabled = false;
+            txtDescripcion.Enabled = false;
+            mtbPrecio.Enabled = false;
+            btnRegistrar.Enabled = false;
+        }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (C >= 100)
+            if (Cont >= 100)
             {
                 MessageBox.Show("Ya se ingresaron los 100 repuestos permitidos.");
                 return;
@@ -149,7 +161,7 @@ namespace pryAstudilloSP3
             }
 
 
-            for (int i = 0; i < C; i++)
+            for (int i = 0; i < Cont; i++)
             {
                 if (Repuestos[i, 2] == Numero)
                 {
@@ -176,15 +188,16 @@ namespace pryAstudilloSP3
 
             // Carga en la matriz
 
-            Repuestos[C, 0] = lstMarca.Text;
-            Repuestos[C, 1] = lstOrigen.Text;
-            Repuestos[C, 2] = Numero;
-            Repuestos[C, 3] = txtDescripcion.Text;
-            Repuestos[C, 4] = Precio;
-            C++;
+            Repuestos[Cont, 0] = lstMarca.Text;
+            Repuestos[Cont, 1] = lstOrigen.Text;
+            Repuestos[Cont, 2] = Numero;
+            Repuestos[Cont, 3] = txtDescripcion.Text;
+            Repuestos[Cont, 4] = Precio;
+            Cont++;
 
             MessageBox.Show("Repuesto cargado correctamente.");
 
+            LimpiarControles();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -211,7 +224,7 @@ namespace pryAstudilloSP3
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            if (C == 0)
+            if (Cont == 0)
             {
                 MessageBox.Show("No hay repuestos cargados para consultar.");
                 return;
@@ -224,13 +237,11 @@ namespace pryAstudilloSP3
                 return;
             }
             char marca = lstMarca2.Text[0];
-
-
             char origen = optNacional.Checked ? 'N' : 'I';
             bool encontrado = false;
 
             cmbResultado.Items.Clear();
-            for (int i = 0; i < C; i++)
+            for (int i = 0; i < Cont; i++)
             {
 
                 if (Repuestos[i, 0][0] == marca && Repuestos[i, 1][0] == origen)
@@ -257,16 +268,15 @@ namespace pryAstudilloSP3
         private void mtbNumeroRepuesto_TextChanged(object sender, EventArgs e)
         {
 
-            // Verificar si el MaskedTextBox tiene algún carácter de texto.
+            
             if (mtbNumeroRepuesto.Text.Trim().Length > 0)
             {
-                // El siguiente control a habilitar es txtDescripcion.
-                txtDescripcion.Enabled = true; // <--- Habilitar txtDescripcion
+                
+                txtDescripcion.Enabled = true; 
             }
             else
             {
-                txtDescripcion.Enabled = false; // <--- Deshabilitar si está vacío
-                                                // También deshabilitar los siguientes en cascada
+                txtDescripcion.Enabled = false; 
                 mtbPrecio.Enabled = false;
                 btnRegistrar.Enabled = false;
             }
